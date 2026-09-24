@@ -21,11 +21,8 @@ export default function RootLayout({
       <body className="bg-black text-white">
         <FitlogProvider>
           <Navbar />
-
           {children}
-
           <Footer />
-
           <Toaster
             position="top-right"
             toastOptions={{

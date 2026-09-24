@@ -44,7 +44,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/my-plan"
+            href="/myplan"
             className={`rounded-full px-2 py-1.5 text-xs transition-all sm:px-4 sm:py-2 sm:text-base ${
               pathname === "/my-plan"
                 ? "bg-[#1a2312] text-[#ccff00]"
@@ -61,7 +61,7 @@ const Navbar = () => {
           {/* Plan */}
 
           <Link
-            href="/my-plan"
+            href="/myplan"
             className="flex items-center gap-1 rounded-full px-1.5 py-1.5 text-[11px] font-bold text-white hover:bg-white/5 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
           >
             <span>Plan</span>
@@ -74,7 +74,7 @@ const Navbar = () => {
           {/* Saved */}
 
           <Link
-            href="/my-plan"
+            href="/myplan"
             className="flex items-center gap-1 rounded-full px-1.5 py-1.5 text-[11px] font-bold text-white hover:bg-white/5 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
           >
             <span>Saved</span>

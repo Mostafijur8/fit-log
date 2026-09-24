@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -6,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+
 import type { IWorkout } from "@/types/workout";
 
 interface FitlogContextType {
@@ -33,6 +35,7 @@ export const FitlogProvider = ({
   const [planWorkouts, setPlanWorkouts] = useState<IWorkout[]>([]);
   const [savedWorkouts, setSavedWorkouts] = useState<IWorkout[]>([]);
 
+  // Add workout to Today's Plan
   const addToPlan = (workout: IWorkout) => {
     setPlanWorkouts((current) => {
       const alreadyAdded = current.some(
@@ -47,6 +50,7 @@ export const FitlogProvider = ({
     });
   };
 
+  // Save workout for later
   const saveForLater = (workout: IWorkout) => {
     setSavedWorkouts((current) => {
       const alreadySaved = current.some(
@@ -61,12 +65,14 @@ export const FitlogProvider = ({
     });
   };
 
+  // Remove from Today's Plan
   const removeFromPlan = (workoutId: number) => {
     setPlanWorkouts((current) =>
       current.filter((item) => item.id !== workoutId),
     );
   };
 
+  // Remove from Saved
   const removeFromSaved = (workoutId: number) => {
     setSavedWorkouts((current) =>
       current.filter((item) => item.id !== workoutId),
@@ -100,3 +106,4 @@ export const useFitlog = () => {
 
   return context;
 };
+
