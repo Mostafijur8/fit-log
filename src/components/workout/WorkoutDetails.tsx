@@ -1,5 +1,6 @@
 
 import Link from "next/link";
+import WorkoutActions from "./WorkoutActions";
 import type { IWorkout } from "@/types/workout";
 
 interface WorkoutDetailsProps {
@@ -170,12 +171,14 @@ const WorkoutDetails = ({ workout }: WorkoutDetailsProps) => {
                       {/* Instruction Text */}
                       <p className="text-[10px] leading-4 text-[#d1d5db] sm:text-xs sm:leading-5">
                         {instruction}
+                       
                       </p>
 
                     </div>
                   ))}
 
                 </div>
+                 <WorkoutActions workout={workout} />
               </div>
 
             </div>

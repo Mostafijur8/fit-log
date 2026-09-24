@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useFitlog } from "@/context/FitlogProvider";
 
 const Navbar = () => {
   const pathname = usePathname();
+
+  const { planWorkouts, savedWorkouts } = useFitlog();
 
   return (
     <div className="sticky top-0 z-50 border-b border-white/10 bg-black/95 shadow-[0_4px_20px_rgba(0,0,0,0.55)] backdrop-blur-md">
@@ -20,10 +23,14 @@ const Navbar = () => {
             alt="FITLOG logo"
             className="h-8 w-8 object-contain sm:h-10 sm:w-10"
           />
-          <p className="text-base tracking-wider sm:text-xl">FITLOG</p>
+
+          <p className="text-base tracking-wider sm:text-xl">
+            FITLOG
+          </p>
         </Link>
 
         {/* Navigation */}
+
         <div className="flex items-center gap-1 sm:gap-3">
           <Link
             href="/"
@@ -49,7 +56,10 @@ const Navbar = () => {
         </div>
 
         {/* Status Badges */}
+
         <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
+          {/* Plan */}
+
           <Link
             href="/my-plan"
             className="flex items-center gap-1 rounded-full px-1.5 py-1.5 text-[11px] font-bold text-white hover:bg-white/5 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
@@ -57,9 +67,11 @@ const Navbar = () => {
             <span>Plan</span>
 
             <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#ccff00] px-1.5 text-[10px] font-extrabold text-black sm:h-6 sm:min-w-6 sm:px-2 sm:text-xs">
-              0
+              {planWorkouts.length}
             </span>
           </Link>
+
+          {/* Saved */}
 
           <Link
             href="/my-plan"
@@ -68,7 +80,7 @@ const Navbar = () => {
             <span>Saved</span>
 
             <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-white/20 bg-white/5 px-1.5 text-[10px] font-bold text-white/80 sm:h-6 sm:min-w-6 sm:px-2 sm:text-xs">
-              0
+              {savedWorkouts.length}
             </span>
           </Link>
         </div>
