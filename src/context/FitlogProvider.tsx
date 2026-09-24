@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -13,12 +12,15 @@ import type { IWorkout } from "@/types/workout";
 interface FitlogContextType {
   planWorkouts: IWorkout[];
   savedWorkouts: IWorkout[];
+  completedWorkoutIds: number[];
 
   addToPlan: (workout: IWorkout) => void;
   saveForLater: (workout: IWorkout) => void;
 
   removeFromPlan: (workoutId: number) => void;
   removeFromSaved: (workoutId: number) => void;
+
+  markAsDone: (workoutId: number) => void;
 }
 
 const FitlogContext = createContext<FitlogContextType | undefined>(
@@ -34,6 +36,9 @@ export const FitlogProvider = ({
 }: FitlogProviderProps) => {
   const [planWorkouts, setPlanWorkouts] = useState<IWorkout[]>([]);
   const [savedWorkouts, setSavedWorkouts] = useState<IWorkout[]>([]);
+
+  const [completedWorkoutIds, setCompletedWorkoutIds] =
+    useState<number[]>([]);
 
   // Add workout to Today's Plan
   const addToPlan = (workout: IWorkout) => {
@@ -79,15 +84,31 @@ export const FitlogProvider = ({
     );
   };
 
+  // Mark workout as completed
+  const markAsDone = (workoutId: number) => {
+    setCompletedWorkoutIds((current) => {
+      if (current.includes(workoutId)) {
+        return current;
+      }
+
+      return [...current, workoutId];
+    });
+  };
+
   return (
     <FitlogContext.Provider
       value={{
         planWorkouts,
         savedWorkouts,
+        completedWorkoutIds,
+
         addToPlan,
         saveForLater,
+
         removeFromPlan,
         removeFromSaved,
+
+        markAsDone,
       }}
     >
       {children}
@@ -106,4 +127,3 @@ export const useFitlog = () => {
 
   return context;
 };
-
