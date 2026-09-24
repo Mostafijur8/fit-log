@@ -10,15 +10,18 @@ const Navbar = () => {
     <div className="sticky top-0 z-50 border-b border-white/10 bg-black/95 shadow-[0_4px_20px_rgba(0,0,0,0.55)] backdrop-blur-md">
       <nav className="container mx-auto flex items-center justify-between gap-2 px-3 py-3 sm:px-4 sm:py-4">
         {/* Logo */}
-        <div className="flex shrink-0 items-center gap-1.5 font-bold text-white sm:gap-2">
+
+        <Link
+          href="/"
+          className="flex shrink-0 items-center gap-1.5 font-bold text-white sm:gap-2"
+        >
           <img
             src="/images/logo/logo.png"
             alt="FITLOG logo"
             className="h-8 w-8 object-contain sm:h-10 sm:w-10"
           />
-
           <p className="text-base tracking-wider sm:text-xl">FITLOG</p>
-        </div>
+        </Link>
 
         {/* Navigation */}
         <div className="flex items-center gap-1 sm:gap-3">
