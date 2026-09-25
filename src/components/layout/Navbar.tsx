@@ -11,30 +11,28 @@ const Navbar = () => {
 
   return (
     <div className="sticky top-0 z-50 border-b border-white/10 bg-black/95 shadow-[0_4px_20px_rgba(0,0,0,0.55)] backdrop-blur-md">
-      <nav className="container mx-auto flex items-center justify-between gap-2 px-3 py-3 sm:px-4 sm:py-4">
+      <nav className="container mx-auto flex items-center justify-between gap-1 px-2 py-2 sm:gap-2 sm:px-4 sm:py-4">
         {/* Logo */}
-
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-1.5 font-bold text-white sm:gap-2"
+          className="flex shrink-0 items-center gap-1 font-bold text-white sm:gap-2"
         >
           <img
             src="/images/logo/logo.png"
             alt="FITLOG logo"
-            className="h-8 w-8 object-contain sm:h-10 sm:w-10"
+            className="h-6 w-6 object-contain sm:h-10 sm:w-10"
           />
 
-          <p className="text-base tracking-wider sm:text-xl">
+          <p className="text-xs tracking-wide sm:text-xl sm:tracking-wider">
             FITLOG
           </p>
         </Link>
 
         {/* Navigation */}
-
-        <div className="flex items-center gap-1 sm:gap-3">
+        <div className="flex items-center gap-0.5 sm:gap-3">
           <Link
             href="/"
-            className={`rounded-full px-2 py-1.5 text-xs transition-all sm:px-4 sm:py-2 sm:text-base ${
+            className={`rounded-full px-2 py-1.5 text-[11px] transition-all sm:px-4 sm:py-2 sm:text-base ${
               pathname === "/"
                 ? "bg-[#1a2312] text-[#ccff00]"
                 : "text-white hover:bg-white/5 hover:text-[#ccff00]"
@@ -45,8 +43,8 @@ const Navbar = () => {
 
           <Link
             href="/myplan"
-            className={`rounded-full px-2 py-1.5 text-xs transition-all sm:px-4 sm:py-2 sm:text-base ${
-              pathname === "/my-plan"
+            className={`rounded-full px-2 py-1.5 text-[11px] transition-all sm:px-4 sm:py-2 sm:text-base ${
+              pathname === "/myplan"
                 ? "bg-[#1a2312] text-[#ccff00]"
                 : "text-[#9ca3af] hover:bg-white/5 hover:text-[#ccff00]"
             }`}
@@ -56,30 +54,27 @@ const Navbar = () => {
         </div>
 
         {/* Status Badges */}
-
-        <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
+        <div className="flex shrink-0 items-center gap-0 sm:gap-2">
           {/* Plan */}
-
           <Link
             href="/myplan"
-            className="flex items-center gap-1 rounded-full px-1.5 py-1.5 text-[11px] font-bold text-white hover:bg-white/5 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
+            className="flex items-center gap-0.5 rounded-full px-1.5 py-1 text-[10px] font-bold text-white hover:bg-white/5 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
           >
             <span>Plan</span>
 
-            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#ccff00] px-1.5 text-[10px] font-extrabold text-black sm:h-6 sm:min-w-6 sm:px-2 sm:text-xs">
+            <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-[#ccff00] px-1 text-[9px] font-extrabold text-black sm:h-6 sm:min-w-6 sm:px-2 sm:text-xs">
               {planWorkouts.length}
             </span>
           </Link>
 
           {/* Saved */}
-
           <Link
             href="/myplan"
-            className="flex items-center gap-1 rounded-full px-1.5 py-1.5 text-[11px] font-bold text-white hover:bg-white/5 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
+            className="flex items-center gap-0.5 rounded-full px-1.5 py-1 text-[10px] font-bold text-white hover:bg-white/5 sm:gap-2 sm:px-3 sm:py-2 sm:text-sm"
           >
             <span>Saved</span>
 
-            <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-white/20 bg-white/5 px-1.5 text-[10px] font-bold text-white/80 sm:h-6 sm:min-w-6 sm:px-2 sm:text-xs">
+            <span className="flex h-4 min-w-4 items-center justify-center rounded-full border border-white/20 bg-white/5 px-1 text-[9px] font-bold text-white/80 sm:h-6 sm:min-w-6 sm:px-2 sm:text-xs">
               {savedWorkouts.length}
             </span>
           </Link>
